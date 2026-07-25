@@ -78,7 +78,9 @@ flowchart TD
     style Bot fill:#0f172a,stroke:#818cf8,stroke-width:2px,color:#fff
     style Alert fill:#1e1b4b,stroke:#a78bfa,stroke-width:1px,color:#fff
     style Buttons fill:#312e81,stroke:#6366f1,color:#fff
+
     ```
+
 
 **3. Engine Telemetry Trace Logs**
 Asynchronous execution trace showing ping auditing, failure counter evaluation, and fallback trigger:
