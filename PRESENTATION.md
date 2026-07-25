@@ -182,8 +182,7 @@ OAuth2 / Security Middleware: Securing the Flask Web Dashboard with authenticate
 
 "Automating network resilience to ensure zero-downtime enterprise infrastructure."
 
-
-**           Dawit Niguse **
+ **_ Dawit Niguse**
 
 
 
