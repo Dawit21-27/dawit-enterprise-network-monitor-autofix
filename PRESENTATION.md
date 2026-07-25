@@ -18,7 +18,8 @@ Modern telecom networks require continuous, uninterrupted runtime with zero faul
 
 This enterprise solution, engineered by **Dawit Niguse**, establishes an automated network monitoring engine that performs real-time latency audits across dynamic subnets, triggers instant alert notifications via Telegram upon host drops, and executes automated SSH self-healing procedures without human intervention.
 
-#የዚህ ፕሮጀክት ዋና አላማ የኔትወርክ መሠረተ-ልማቶች (Routers, Switches, Servers) ላይ የ **Downtime** ወይም የአገልግሎት መቋረጥ ሳይከሰት በ **Real-Time Telemetry** ፍተሻ በማድረግ፣ ችግሮች ሲፈጠሩ በራሱ ጊዜ **Auto-Healing (SSH Recovery)** እንዲያደርግ እና ለአስተዳዳሪው በቴሌግራም አስቸኳይ **Incident Alert** እንዲልክ ማድረግ ነው።"
+የዚህ ፕሮጀክት ዋና አላማ የኔትወርክ መሠረተ-ልማቶች (Routers, Switches, Servers) ላይ የ **Downtime** ወይም የአገልግሎት መቋረጥ ሳይከሰት በ **Real-Time Telemetry** ፍተሻ በማድረግ፣ ችግሮች ሲፈጠሩ በራሱ ጊዜ **Auto-Healing (SSH Recovery)** እንዲያደርግ እና ለአስተዳዳሪው በቴሌግራም አስቸኳይ **Incident Alert** እንዲልክ ማድረግ ነው።"
+
 ---
 
 ## 📐 System Architecture & Automated Workflow
