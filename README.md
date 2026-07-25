@@ -22,13 +22,6 @@ flowchart TD
 
 ```
 ---
-## 📸 System Previews
-
-### 1. Visual Web Dashboard (`http://localhost:5000`)
-Real-time node telemetry dashboard status rendering:
-
-## 📸 System Previews
-
 ### 1. Visual Web Dashboard (`http://localhost:5000`)
 Real-time node telemetry dashboard status rendering:
 
@@ -91,6 +84,7 @@ flowchart TD
     style L5 fill:#2e1065,stroke:#9333ea,color:#c084fc
 
  ```
+
 ---
 
 ## 👥 User Guide (በተግባር እንዴት እንደሚሰራ)
@@ -121,7 +115,7 @@ pip install flask python-dotenv requests
 
 # 3. Create .env file with your credentials
 
-
+```
 ---
 
 ## ⚖️ System Evaluation: Strengths & Limitations
