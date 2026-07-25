@@ -60,6 +60,7 @@ flowchart TD
     style N2 fill:#166534,stroke:#4ade80
     style N3 fill:#991b1b,stroke:#f87171,color:#fff
 ``` 
+
   
 ** 2. Interactive Incident Telegram Bot**
 Instant outage notification dispatch with interactive live-status inline controls:   
@@ -78,7 +79,8 @@ flowchart TD
     style Bot fill:#0f172a,stroke:#818cf8,stroke-width:2px,color:#fff
     style Alert fill:#1e1b4b,stroke:#a78bfa,stroke-width:1px,color:#fff
     style Buttons fill:#312e81,stroke:#6366f1,color:#fff
-    ```
+```
+
 
 **3. Engine Telemetry Trace Logs**
 Asynchronous execution trace showing ping auditing, failure counter evaluation, and fallback trigger:
@@ -100,7 +102,8 @@ flowchart TD
     style L3 fill:#451a03,stroke:#d97706,color:#fbbf24
     style L4 fill:#450a0a,stroke:#dc2626,color:#f87171
     style L5 fill:#2e1065,stroke:#9333ea,color:#c084fc
-   ```	
+   
+```
 
 ---
 ##⚡  Technical Milestones & Core Capabilities
