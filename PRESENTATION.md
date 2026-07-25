@@ -45,25 +45,6 @@ flowchart TD
 
 **1. Visual Web Analytics Dashboard (http://localhost:5000)**
 Real-time node status rendering with automatic telemetry updates every 10 seconds:
-   
-   ```mermaid
-   flowchart TD
-    subgraph Dashboard["📊 DAWIT TELECOM - NETWORK HEALTH DASHBOARD"]
-        direction TB
-        N1["🖥️ Node: 192.168.1.1 <br/> ⏱️ Latency: 12.4 ms <br/> 🟢 Status: ONLINE"]
-        N2["🌐 Node: 8.8.8.8 (Google DNS) <br/> ⏱️ Latency: 42.1 ms <br/> 🟢 Status: ONLINE"]
-        N3["⚠️ Node: 10.0.0.12 (Server) <br/> ⏱️ Latency: --- <br/> 🔴 Status: OFFLINE"]
-    end
-
-    style Dashboard fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style N1 fill:#166534,stroke:#4ade80,stroke-width:1px,color:#fff
-    style N2 fill:#166534,stroke:#4ade80,stroke-width:1px,color:#fff
-    style N3 fill:#991b1b,stroke:#f87171,stroke-width:1px,color:#fff
-    ```
-  
-** 2. Interactive Incident Telegram Bot**
-Instant outage notification dispatch with interactive live-status inline controls:   
-
 
 ```mermaid
 flowchart TD
@@ -78,7 +59,12 @@ flowchart TD
     style N1 fill:#166534,stroke:#4ade80
     style N2 fill:#166534,stroke:#4ade80
     style N3 fill:#991b1b,stroke:#f87171,color:#fff
-```
+``` 
+  
+** 2. Interactive Incident Telegram Bot**
+Instant outage notification dispatch with interactive live-status inline controls:   
+
+
 
 **3. Engine Telemetry Trace Logs**
 Asynchronous execution trace showing ping auditing, failure counter evaluation, and fallback trigger:
