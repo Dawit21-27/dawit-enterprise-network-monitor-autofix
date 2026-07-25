@@ -24,7 +24,6 @@ flowchart TD
 ---
 
 
-
 ## 📸 System Previews
 
 ### 1. Visual Web Dashboard (`http://localhost:5000`)
