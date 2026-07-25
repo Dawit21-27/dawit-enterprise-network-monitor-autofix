@@ -64,7 +64,21 @@ flowchart TD
 ** 2. Interactive Incident Telegram Bot**
 Instant outage notification dispatch with interactive live-status inline controls:   
 
+   ```mermaid
+flowchart TD
+    subgraph Bot["🤖 TELEGRAM INCIDENT BOT"]
+        direction TB
+        Alert["🚨 CRITICAL ALERT: HOST DOWN<br/>━━━━━━━━━━━━━━━━━━━━━<br/>🎯 Target IP: 10.0.0.12<br/>⚠️ Drop Count: 3/3 Consecutive ICMP Drops<br/>⚡ Recovery: SSH Self-Healing Triggered"]
+        
+        subgraph Buttons["Interactive Actions"]
+            B1["📊 Live Status"] --- B2["🔄 Re-Check Node"]
+        end
+    end
 
+    style Bot fill:#0f172a,stroke:#818cf8,stroke-width:2px,color:#fff
+    style Alert fill:#1e1b4b,stroke:#a78bfa,stroke-width:1px,color:#fff
+    style Buttons fill:#312e81,stroke:#6366f1,color:#fff
+    ```
 
 **3. Engine Telemetry Trace Logs**
 Asynchronous execution trace showing ping auditing, failure counter evaluation, and fallback trigger:
@@ -86,7 +100,7 @@ flowchart TD
     style L3 fill:#451a03,stroke:#d97706,color:#fbbf24
     style L4 fill:#450a0a,stroke:#dc2626,color:#f87171
     style L5 fill:#2e1065,stroke:#9333ea,color:#c084fc
-    ```	
+   ```	
 
 ---
 ##⚡  Technical Milestones & Core Capabilities
