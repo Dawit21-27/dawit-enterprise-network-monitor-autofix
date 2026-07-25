@@ -119,6 +119,7 @@ flowchart TD
 **• Cross-Platform Resilience:** Built-in dynamic fallback handling for continuous operation across desktop and mobile-simulated runtimes.
 
 ---
+
 ```mermaid
 flowchart TD
     subgraph S4["🐠Deployment Environment Metrics"]
@@ -141,6 +142,7 @@ flowchart TD
     style PC fill:#064e3b,stroke:#34d399,color:#fff
     style Mobile fill:#1e1b4b,stroke:#a78bfa,color:#fff
     ```
+
     ---
     ## 🚀  Roadmap & Future Innovations
 Distributed Agent Nodes: Transitioning to a Celery/Redis architecture for multi-region scanning.
