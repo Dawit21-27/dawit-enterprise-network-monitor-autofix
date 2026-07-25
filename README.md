@@ -19,3 +19,6 @@ flowchart TD
     F -->|Failures >= 3| G["🚨 Send Telegram Alert<br/>⚡ Execute SSH Healing"]
     
     E --> H["Update Flask Web Dashboard<br/>(http://localhost:5000)"]
+
+
+
