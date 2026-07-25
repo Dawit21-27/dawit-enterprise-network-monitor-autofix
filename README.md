@@ -65,12 +65,14 @@ flowchart TD
     style Alert fill:#1e1b4b,stroke:#a78bfa,stroke-width:1px,color:#fff
     style Buttons fill:#312e81,stroke:#6366f1,color:#fff
 
-    ```
+```
+
 
 ### 3. Engine Telemetry Logs
 Asynchronous multi-threaded execution traces showing ping scanning and dynamic fallback handling.
 
 ```mermaid
+
 flowchart TD
     subgraph Engine["⚙️ TERMINAL ENGINE LOGS (Multi-Threaded)"]
         direction TB
