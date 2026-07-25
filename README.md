@@ -6,32 +6,21 @@ A robust, multi-threaded enterprise network health monitoring and incident respo
 
 ## 📐 System Architecture & Flowchart
 
- ┌──────────────────────────┐
-                      │   Ping Scan Scheduler    │
-                      │   (Parallel Threads)     │
-                      └────────────┬─────────────┘
-                                   │
-                                   ▼
-                      ┌──────────────────────────┐
-                      │ IPv4 ICMP Target Check   │
-                      └────────────┬─────────────┘
-                                   │
-                   ┌───────────────┴───────────────┐
-                   ▼                               ▼
-           [ Host ONLINE ]                  [ Host OFFLINE ]
-                   │                               │
-                   ▼                               ▼
-     ┌───────────────────────────┐   ┌───────────────────────────┐
-     │ Record Latency into SQLite│   │ Trigger Threshold Audit   │
-     └─────────────┬─────────────┘   └─────────────┬─────────────┘
-                   │                               │
-                   │                        (Failures >= 3)
-                   │                               │
-                   ▼                               ▼
-     ┌───────────────────────────┐   ┌───────────────────────────┐
-     │ Update Flask Web Dashboard│   │ 🚨 Send Telegram Alert   │
-     │   (http://localhost:5000) │   │ ⚡ Execute SSH Healing    │
-     └───────────────────────────┘   └───────────────────────────┘
+ 
+ ```mermaid
+flowchart TD
+    A["┌──────────────────────────┐<br/>│  Ping Scan Scheduler     │<br/>│  (Parallel Threads)      │<br/>└──────────────────────────┘"] --> B["┌──────────────────────────┐<br/>│ IPv4 ICMP Target Check   │<br/>└──────────────────────────┘"]
+    
+    B --> C["[ Host ONLINE ]"]
+    B --> D["[ Host OFFLINE ]"]
+    
+    C --> E["┌───────────────────────────┐<br/>│ Record Latency into SQLite│<br/>└───────────────────────────┘"]
+    
+    D --> F["┌───────────────────────────┐<br/>│ Trigger Threshold Audit   │<br/>└───────────────────────────┘"]
+    
+    F -->|Failures >= 3| G["┌───────────────────────────┐<br/>│ 🚨 Send Telegram Alert    │<br/>│ ⚡ Execute SSH Healing    │<br/>└───────────────────────────┘"]
+    
+    E --> H["┌───────────────────────────┐<br/>│ Update Flask Web Dashboard│<br/>│ (http://localhost:5000)   │<br/>└───────────────────────────┘"]
      
      ---
 
