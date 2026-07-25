@@ -141,9 +141,11 @@ flowchart TD
     style S4 fill:#0f172a,stroke:#38bdf8,color:#fff
     style PC fill:#064e3b,stroke:#34d399,color:#fff
     style Mobile fill:#1e1b4b,stroke:#a78bfa,color:#fff
-    ```
+  ```  
+
 
     ---
+
     ## 🚀  Roadmap & Future Innovations
 Distributed Agent Nodes: Transitioning to a Celery/Redis architecture for multi-region scanning.
 
