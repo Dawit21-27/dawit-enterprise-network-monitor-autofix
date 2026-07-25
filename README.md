@@ -2,6 +2,7 @@
 
 A robust, multi-threaded enterprise network health monitoring and incident response suite. Built with Python, it continuously audits node latency, dispatches instant notifications via Telegram, offers interactive REST/Web UI dashboards, and executes SSH recovery routines under node failures.
 
+---
 
 ## 📐 System Architecture & Flowchart
 
@@ -18,8 +19,8 @@ flowchart TD
     F -->|Failures >= 3| G["🚨 Send Telegram Alert<br/>⚡ Execute SSH Healing"]
     
     E --> H["Update Flask Web Dashboard<br/>(http://localhost:5000)"]
- 
-     
+   
+       ---
 
 ## 📸 System Previews
 
@@ -38,7 +39,7 @@ Asynchronous multi-threaded execution traces showing ping scanning and dynamic f
 
 ![Terminal Engine Logs](terminal_logs.png)
 
-
+---
 
 ## 👥 User Guide (በተግባር እንዴት እንደሚሰራ)
 
