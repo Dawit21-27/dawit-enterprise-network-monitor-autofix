@@ -1,12 +1,16 @@
 """
-Dawit Telecom - Enterprise Network Monitor & Self-Healing Engine
-Author: Dawit
-Architecture: Multi-threaded, Zero-Crash Exception Handling, Injection Protected,
+====================================================================
+PROJECT: Dawit Telecom Enterprise Network Health & Self-Healing Suite
+AUTHOR: Dawit Niguse
+DESCRIPTION:Multi-threaded, Zero-Crash Exception Handling, Injection Protected,
               SSH RSA Healing, Dynamic DB Inventory, Telegram Inline Buttons & SMS Fallback.
+====================================================================
 """
 
 import os
 import time
+
+print("Network Monitoring Engine Starting...")
 import shutil
 import re
 import subprocess
