@@ -6,23 +6,21 @@ A robust, multi-threaded enterprise network health monitoring and incident respo
 
 ## 📐 System Architecture & Flowchart
 
- 
- ```mermaid
+```mermaid
 flowchart TD
-    A["┌──────────────────────────┐<br/>│  Ping Scan Scheduler     │<br/>│  (Parallel Threads)      │<br/>└──────────────────────────┘"] --> B["┌──────────────────────────┐<br/>│ IPv4 ICMP Target Check   │<br/>└──────────────────────────┘"]
+    A["Ping Scan Scheduler<br/>(Parallel Threads)"] --> B["IPv4 ICMP Target Check"]
     
-    B --> C["[ Host ONLINE ]"]
-    B --> D["[ Host OFFLINE ]"]
+    B --> C["Host ONLINE"]
+    B --> D["Host OFFLINE"]
     
-    C --> E["┌───────────────────────────┐<br/>│ Record Latency into SQLite│<br/>└───────────────────────────┘"]
+    C --> E["Record Latency into SQLite"]
+    D --> F["Trigger Threshold Audit"]
     
-    D --> F["┌───────────────────────────┐<br/>│ Trigger Threshold Audit   │<br/>└───────────────────────────┘"]
+    F -->|Failures >= 3| G["🚨 Send Telegram Alert<br/>⚡ Execute SSH Healing"]
     
-    F -->|Failures >= 3| G["┌───────────────────────────┐<br/>│ 🚨 Send Telegram Alert    │<br/>│ ⚡ Execute SSH Healing    │<br/>└───────────────────────────┘"]
-    
-    E --> H["┌───────────────────────────┐<br/>│ Update Flask Web Dashboard│<br/>│ (http://localhost:5000)   │<br/>└───────────────────────────┘"]
+    E --> H["Update Flask Web Dashboard<br/>(http://localhost:5000)"]
+ 
 
-'''    
      ---
 
 ## 📸 System Previews
