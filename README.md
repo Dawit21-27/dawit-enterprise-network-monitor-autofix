@@ -27,44 +27,66 @@ flowchart TD
 ### 1. Visual Web Dashboard (`http://localhost:5000`)
 Real-time node telemetry dashboard status rendering:
 
+## 📸 System Previews
+
+### 1. Visual Web Dashboard (`http://localhost:5000`)
+Real-time node telemetry dashboard status rendering:
+
 ```mermaid
-block-beta
-columns 4
-  space:1 title["📊 DAWIT TELECOM - NETWORK HEALTH DASHBOARD"] space:1
-  block:c1:4
-    columns 3
-    node1["🖥️ Node IP: 192.168.1.1<br/>RTT: 12.4ms<br/>🟢 ONLINE"]
-    node2["🌐 Node IP: 8.8.8.8<br/>RTT: 42.1ms<br/>🟢 ONLINE"]
-    node3["⚠️ Node IP: 10.0.0.12<br/>RTT: OFF<br/>🔴 OFFLINE"]
-  end
+flowchart TD
+    subgraph Dashboard["📊 DAWIT TELECOM - NETWORK HEALTH DASHBOARD"]
+        direction TB
+        N1["🖥️ Node: 192.168.1.1 <br/> ⏱️ Latency: 12.4 ms <br/> 🟢 Status: ONLINE"]
+        N2["🌐 Node: 8.8.8.8 (Google DNS) <br/> ⏱️ Latency: 42.1 ms <br/> 🟢 Status: ONLINE"]
+        N3["⚠️ Node: 10.0.0.12 (Server) <br/> ⏱️ Latency: --- <br/> 🔴 Status: OFFLINE"]
+    end
+
+    style Dashboard fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
+    style N1 fill:#166534,stroke:#4ade80,stroke-width:1px,color:#fff
+    style N2 fill:#166534,stroke:#4ade80,stroke-width:1px,color:#fff
+    style N3 fill:#991b1b,stroke:#f87171,stroke-width:1px,color:#fff
 ```
 
 ### 2. Interactive Telegram Bot & Critical Incident Alerts
 Instant outage notifications with inline controls for status queries.
 
-🤖 Telegram Bot Interface Preview
+```mermaid
+flowchart TD
+    subgraph Bot["🤖 TELEGRAM INCIDENT BOT"]
+        direction TB
+        Alert["🚨 CRITICAL ALERT: HOST DOWN<br/>━━━━━━━━━━━━━━━━━━━━━<br/>🎯 Target IP: 10.0.0.12<br/>⚠️ Drop Count: 3/3 Consecutive ICMP Drops<br/>⚡ Recovery: SSH Self-Healing Triggered"]
+        
+        subgraph Buttons["Interactive Actions"]
+            B1["📊 Live Status"] --- B2["🔄 Re-Check Node"]
+        end
+    end
 
-🔴 CRITICAL ALERT: HOST DOWN
-
-Node: 10.0.0.12
-
-Failures: 3/3 Consecutive ICMP Drops
-
-Action Taken: SSH Self-Healing Triggered
-
-[ 📊 Live Status ] [ 🔄 Re-Check Node ]
+    style Bot fill:#0f172a,stroke:#818cf8,stroke-width:2px,color:#fff
+    style Alert fill:#1e1b4b,stroke:#a78bfa,stroke-width:1px,color:#fff
+    style Buttons fill:#312e81,stroke:#6366f1,color:#fff
+    ```
 
 ### 3. Engine Telemetry Logs
 Asynchronous multi-threaded execution traces showing ping scanning and dynamic fallback handling.
 
-[INFO] [THREAD-1] Ping scan initiated for target subnet 192.168.1.0/24...
-[SUCCESS] 192.168.1.1 is ONLINE (Latency: 12.4ms) -> SQLite Updated.
-[WARNING] Target 10.0.0.12 failed ICMP response! (Failure count: 1/3)
-[WARNING] Target 10.0.0.12 failed ICMP response! (Failure count: 2/3)
-[CRITICAL] Target 10.0.0.12 Threshold Exceeded! (Failure count: 3/3)
-[ACTION] Dispatching Telegram Alert to Admin...
-[ACTION] Initiating Paramiko SSH Self-Healing Session on 10.0.0.12...
+```mermaid
+flowchart TD
+    subgraph Engine["⚙️ TERMINAL ENGINE LOGS (Multi-Threaded)"]
+        direction TB
+        L1["[INFO] Ping scan initiated for subnet 192.168.1.0/24..."] --> L2
+        L2["[SUCCESS] 192.168.1.1 is ONLINE (12.4ms) ➔ SQLite Updated"] --> L3
+        L3["[WARNING] Target 10.0.0.12 failed ICMP response! (Attempt 1/3)"] --> L4
+        L4["[CRITICAL] Target 10.0.0.12 Threshold Exceeded! (Attempt 3/3)"] --> L5
+        L5["[ACTION] Dispatching Telegram Alert ➔ Executing SSH Healing..."]
+    end
 
+    style Engine fill:#020617,stroke:#06b6d4,stroke-width:2px,color:#fff
+    style L1 fill:#0f172a,stroke:#334155,color:#38bdf8
+    style L2 fill:#052e16,stroke:#16a34a,color:#4ade80
+    style L3 fill:#451a03,stroke:#d97706,color:#fbbf24
+    style L4 fill:#450a0a,stroke:#dc2626,color:#f87171
+    style L5 fill:#2e1065,stroke:#9333ea,color:#c084fc
+    ```
 ---
 
 ## 👥 User Guide (በተግባር እንዴት እንደሚሰራ)
