@@ -1,0 +1,59 @@
+# ==========================================
+# 1. SECRETS & LOCAL CONFIGURATION
+# ==========================================
+# Exclude actual environment variables (Passwords, Tokens & IPs)
+.env
+*.env
+.env.local
+
+# ==========================================
+# 2. TELEMETRY DATABASE & LOG ARCHIVES
+# ==========================================
+# Dynamic runtime databases and generated logs
+*.db
+*.sqlite
+*.sqlite3
+*.log
+logs/
+monthly_telemetry_*.csv
+# ==========================================
+# 3. PYTHON RUNTIME & CACHE FILES
+# ==========================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+
+# ==========================================
+# 4. MOBILE (PYDROID 3) & IDE TEMP FILES
+# ==========================================
+# Mobile runtime temp files & Desktop IDE configs
+.pydroid3/
+.vscode/
+.idea/
+*.swp
+*.tmp
+.DS_Store
+
+# ==========================================
+# ENVIRONMENT & SECRETS (በፍጹም ወደ Git እንዳይገቡ)
+# ==========================================
+.env
+*.env
+.env.local
+
+# ==========================================
+# DATABASE & LOGS
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
+*.log
+logs/
+
