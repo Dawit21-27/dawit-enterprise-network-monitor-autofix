@@ -22,22 +22,22 @@ flowchart TD
 
 ```
 ---
-
-
 ## 📸 System Previews
 
 ### 1. Visual Web Dashboard (`http://localhost:5000`)
-Real-time node telemetry dashboard auto-refreshing every 10 seconds.
+Real-time node telemetry dashboard status rendering:
 
-+-------------------------------------------------+
-|  Dawit Telecom - Network Health Dashboard (v1.0) |
-+-------------------------------------------------+
-| Node IP     | RTT (ms) | Status    | Last Check |
-|-------------|----------|-----------|------------|
-| 192.168.1.1 | 15.2     | 🟢 ONLINE | 12:00:10   |
-| 8.8.8.8     | 45.8     | 🟢 ONLINE | 12:00:10   |
-| 10.0.0.5    | ---      | 🔴 OFFLINE| 12:00:05   |
-+-------------------------------------------------+
+```mermaid
+block-beta
+columns 4
+  space:1 title["📊 DAWIT TELECOM - NETWORK HEALTH DASHBOARD"] space:1
+  block:c1:4
+    columns 3
+    node1["🖥️ Node IP: 192.168.1.1<br/>RTT: 12.4ms<br/>🟢 ONLINE"]
+    node2["🌐 Node IP: 8.8.8.8<br/>RTT: 42.1ms<br/>🟢 ONLINE"]
+    node3["⚠️ Node IP: 10.0.0.12<br/>RTT: OFF<br/>🔴 OFFLINE"]
+  end
+```
 
 ### 2. Interactive Telegram Bot & Critical Incident Alerts
 Instant outage notifications with inline controls for status queries.
