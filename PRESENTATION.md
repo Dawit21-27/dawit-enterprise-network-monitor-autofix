@@ -64,6 +64,7 @@ Real-time node status rendering with automatic telemetry updates every 10 second
 ** 2. Interactive Incident Telegram Bot**
 Instant outage notification dispatch with interactive live-status inline controls:   
 
+
 ```mermaid
 flowchart TD
     subgraph Dashboard["📊 DAWIT TELECOM"]
@@ -100,6 +101,7 @@ flowchart TD
     style L4 fill:#450a0a,stroke:#dc2626,color:#f87171
     style L5 fill:#2e1065,stroke:#9333ea,color:#c084fc
     ```	
+
 ---
 ##⚡  Technical Milestones & Core Capabilities
 
