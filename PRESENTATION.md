@@ -178,11 +178,14 @@ OAuth2 / Security Middleware: Securing the Flask Web Dashboard with authenticate
 
 ---
 
-🎓 Closing & Engineering Philosophy
+## 🎓 Closing & Engineering Philosophy
 
 "Automating network resilience to ensure zero-downtime enterprise infrastructure."
 
-**— Dawit Niguse**
+
+	   
+	    ** — Dawit Niguse ** 
+
 
 
 **Thank you for evaluating this technical presentation! Questions & Demo Session.**
