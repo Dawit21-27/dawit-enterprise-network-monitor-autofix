@@ -21,7 +21,8 @@ flowchart TD
     F -->|Failures >= 3| G["┌───────────────────────────┐<br/>│ 🚨 Send Telegram Alert    │<br/>│ ⚡ Execute SSH Healing    │<br/>└───────────────────────────┘"]
     
     E --> H["┌───────────────────────────┐<br/>│ Update Flask Web Dashboard│<br/>│ (http://localhost:5000)   │<br/>└───────────────────────────┘"]
-     
+
+'''    
      ---
 
 ## 📸 System Previews
