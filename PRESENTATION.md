@@ -41,7 +41,7 @@ flowchart TD
     E --> H["Update Flask Web Dashboard<br/>(http://localhost:5000)"]
    ```
  ---  
-  ##  📸  ** Interactive System Interfaces Preview**
+  ##  📸  Interactive System Interfaces Preview
 
 **1. Visual Web Analytics Dashboard (http://localhost:5000)**
 Real-time node status rendering with automatic telemetry updates every 10 seconds:
@@ -64,23 +64,20 @@ Real-time node status rendering with automatic telemetry updates every 10 second
 ** 2. Interactive Incident Telegram Bot**
 Instant outage notification dispatch with interactive live-status inline controls:   
 
-   ```mermaid
+```mermaid
 flowchart TD
-    subgraph Bot["🤖 TELEGRAM INCIDENT BOT"]
+    subgraph Dashboard["📊 DAWIT TELECOM"]
         direction TB
-        Alert["🚨 CRITICAL ALERT: HOST DOWN<br/>━━━━━━━━━━━━━━━━━━━━━<br/>🎯 Target IP: 10.0.0.12<br/>⚠️ Drop Count: 3/3 Consecutive ICMP Drops<br/>⚡ Recovery: SSH Self-Healing Triggered"]
-        
-        subgraph Buttons["Interactive Actions"]
-            B1["📊 Live Status"] --- B2["🔄 Re-Check Node"]
-        end
+        N1["🖥️ Node: 192.168.1.1"]
+        N2["🌐 Node: 8.8.8.8 (Google DNS)"]
+        N3["⚠️ Node: 10.0.0.12 (Server)"]
     end
 
-    style Bot fill:#0f172a,stroke:#818cf8,stroke-width:2px,color:#fff
-    style Alert fill:#1e1b4b,stroke:#a78bfa,stroke-width:1px,color:#fff
-    style Buttons fill:#312e81,stroke:#6366f1,color:#fff
-
-    ```
-
+    style Dashboard fill:#0f172a,stroke:#38c
+    style N1 fill:#166534,stroke:#4ade80
+    style N2 fill:#166534,stroke:#4ade80
+    style N3 fill:#991b1b,stroke:#f87171,color:#fff
+```
 
 **3. Engine Telemetry Trace Logs**
 Asynchronous execution trace showing ping auditing, failure counter evaluation, and fallback trigger:
