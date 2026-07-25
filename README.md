@@ -29,17 +29,41 @@ flowchart TD
 ### 1. Visual Web Dashboard (`http://localhost:5000`)
 Real-time node telemetry dashboard auto-refreshing every 10 seconds.
 
-![Web Dashboard](dashboard_preview.png)
++-------------------------------------------------+
+|  Dawit Telecom - Network Health Dashboard (v1.0) |
++-------------------------------------------------+
+| Node IP     | RTT (ms) | Status    | Last Check |
+|-------------|----------|-----------|------------|
+| 192.168.1.1 | 15.2     | 🟢 ONLINE | 12:00:10   |
+| 8.8.8.8     | 45.8     | 🟢 ONLINE | 12:00:10   |
+| 10.0.0.5    | ---      | 🔴 OFFLINE| 12:00:05   |
++-------------------------------------------------+
 
 ### 2. Interactive Telegram Bot & Critical Incident Alerts
 Instant outage notifications with inline controls for status queries.
 
-![Telegram Bot Alerts](telegram_alerts.png)
+🤖 Telegram Bot Interface Preview
+
+🔴 CRITICAL ALERT: HOST DOWN
+
+Node: 10.0.0.12
+
+Failures: 3/3 Consecutive ICMP Drops
+
+Action Taken: SSH Self-Healing Triggered
+
+[ 📊 Live Status ] [ 🔄 Re-Check Node ]
 
 ### 3. Engine Telemetry Logs
 Asynchronous multi-threaded execution traces showing ping scanning and dynamic fallback handling.
 
-![Terminal Engine Logs](terminal_logs.png)
+[INFO] [THREAD-1] Ping scan initiated for target subnet 192.168.1.0/24...
+[SUCCESS] 192.168.1.1 is ONLINE (Latency: 12.4ms) -> SQLite Updated.
+[WARNING] Target 10.0.0.12 failed ICMP response! (Failure count: 1/3)
+[WARNING] Target 10.0.0.12 failed ICMP response! (Failure count: 2/3)
+[CRITICAL] Target 10.0.0.12 Threshold Exceeded! (Failure count: 3/3)
+[ACTION] Dispatching Telegram Alert to Admin...
+[ACTION] Initiating Paramiko SSH Self-Healing Session on 10.0.0.12...
 
 ---
 
