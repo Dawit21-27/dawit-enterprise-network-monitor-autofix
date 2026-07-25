@@ -1,0 +1,14 @@
+# Web Framework for Analytics Dashboard (web_dashboard.py)
+Flask>=2.3.0
+
+# Environment Variables Loader (.env -> main.py)
+python-dotenv>=1.0.0
+
+# HTTP Requests & Telegram Bot API
+requests>=2.31.0
+
+# SSH Automation Engine for Self-Healing
+paramiko>=3.2.0
+
+# Optional Twilio SMS Gateway
+twilio>=8.0.0
