@@ -27,9 +27,8 @@ def get_db_connection():
         logging.error(f"Database Connection Error: {e}")
         return None
 
-
 def init_db():
-    """Initializes schema and seeds initial dynamic inventory safely."""
+    """Initializes the enterprise database schema and seeds inventory from environment variables."""
     conn = get_db_connection()
     if not conn:
         return
@@ -68,23 +67,24 @@ def init_db():
             )
         """)
 
-        # Default Seed Inventory
-        default_ips = [
-            ("8.8.8.8", "Google Primary DNS"),
-            ("1.1.1.1", "Cloudflare DNS"),
-            ("10.99.99.99", "Critical Core Router (Simulation)")
-        ]
-        for ip, label in default_ips:
-            cursor.execute("INSERT OR IGNORE INTO ip_inventory (ip_address, label) VALUES (?, ?)", (ip, label))
+        # Dynamic Engine: Loading target nodes securely from the .env configuration
+        env_ips = os.getenv("TARGET_HOSTS", "8.8.8.8,1.1.1.1")
+        ip_list = [ip.strip() for ip in env_ips.split(",") if ip.strip()]
+
+        for ip in ip_list:
+            cursor.execute("""
+                INSERT OR IGNORE INTO ip_inventory (ip_address, label) 
+                VALUES (?, ?)
+            """, (ip, f"Node-{ip}"))
 
         conn.commit()
-        logging.info("✅ Database Layer & Schema Initialized Successfully!")
+        logging.info("Database initialized successfully from environment config.")
+        
     except sqlite3.Error as e:
         logging.error(f"Database Initialization Error: {e}")
     finally:
         conn.close()
-
-
+      
 def get_active_inventory():
     """Fetches active targets dynamically from DB."""
     conn = get_db_connection()
