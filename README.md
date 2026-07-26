@@ -21,6 +21,14 @@ flowchart TD
     E --> H["Update Flask Web Dashboard<br/>(http://localhost:5000)"]
 
 ```
+### 📁 Advanced Enterprise Data Archiving & CPU Optimization
+To prevent database bloating and mitigate high CPU utilization in massive enterprise networks, the system implements a thread-safe historical log-rotation engine:
+* **Dynamic Time Buckets:** Automatically extracts and segments telemetry records based on the exact historical generation date (`timestamp`) rather than the execution date, preventing folder mixing.
+* **Granular Sub-folder Routing:** Archives data into a clean, hierarchical storage format organized dynamically by calendar weeks: `archives/YEAR/MONTH/[1st_to_4th]_Week/network_history_archive.csv`.
+* **Edge-Case Calendar Resolution:** Safely handles varying month lengths (28, 30, and 31 days) by dynamically clustering overflow trailing days (days 29-31) into the final week (`4th_Week`) to eliminate directory duplication.
+* **Memory Leak Prevention:** Executes batch-based operations during database cleanup routines (`DELETE FROM ping_logs`) to free up memory and ensure 100% operational uptime on low-resource endpoints.
+
+
 ---
 ### 1. Visual Web Dashboard (`http://localhost:5000`)
 Real-time node telemetry dashboard status rendering:
