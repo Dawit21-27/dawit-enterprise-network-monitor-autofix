@@ -121,12 +121,10 @@ def log_ping_result(ip, status, latency_ms):
     finally:
         conn.close()
 
-
 def archive_old_logs(days_threshold=30):
     """
-    Point 14 Enhancement (Monthly Folder Archiving):
-    Transfers records older than 'days_threshold' to Year/Month folder structures
-    in CSV format to protect CPU/Memory performance while preserving history.
+    Safely archives old ping logs into dynamic chronological folders (YEAR/MONTH/WEEK)
+    based on the ACTUAL data timestamp, preventing data misplacement and resource locking.
     """
     conn = get_db_connection()
     if not conn:
@@ -134,38 +132,51 @@ def archive_old_logs(days_threshold=30):
 
     try:
         cursor = conn.cursor()
+      
         cutoff_date = (datetime.now() - timedelta(days=days_threshold)).strftime("%Y-%m-%d %H:%M:%S")
-        cursor.execute("SELECT * FROM ping_logs WHERE timestamp < ?", (cutoff_date,))
+
+        # 1. Fetch old records from the database
+        cursor.execute("SELECT * FROM ping_logs WHERE timestamp < ? ORDER BY timestamp ASC", (cutoff_date,))
         old_records = cursor.fetchall()
 
-        if not old_records:
-            return
-
-        # Folder Architecture: archives/2026/July/
-        now = datetime.now()
-        year_str = now.strftime("%Y")
-        month_str = now.strftime("%B")
-        target_folder = os.path.join(ARCHIVE_DIR, year_str, month_str)
-        os.makedirs(target_folder, exist_ok=True)
-
-        archive_file = os.path.join(target_folder, "network_history_archive.csv")
-        file_exists = os.path.exists(archive_file)
-
-        with open(archive_file, "a", newline="", encoding="utf-8") as f:
-            writer = csv.writer(f)
-            if not file_exists:
-                writer.writerow(["ID", "IP Address", "Status", "Latency (ms)", "Timestamp"])
+        if old_records:
+            # Group records by their actual year, month, and week to prevent folder mixing
             for row in old_records:
-                writer.writerow([row["id"], row["ip_address"], row["status"], row["latency_ms"], row["timestamp"]])
+                
+                record_time = datetime.strptime(row["timestamp"], "%Y-%m-%d %H:%M:%S")
+                
+                year_str = record_time.strftime("%Y")
+                month_str = record_time.strftime("%B")
 
-        cursor.execute("DELETE FROM ping_logs WHERE timestamp < ?", (cutoff_date,))
-        conn.commit()
-        logging.info(f"📦 Archived {len(old_records)} records to {archive_file}")
+                
+                record_day = record_time.day
+                week_of_month = (record_day - 1) // 7 + 1
+                if week_of_month == 1: suffix = "1st_Week"
+                elif week_of_month == 2: suffix = "2nd_Week"
+                elif week_of_month == 3: suffix = "3rd_Week"
+                else: suffix = "4th_Week"
+
+                target_folder = os.path.join(ARCHIVE_DIR, year_str, month_str, suffix)
+                os.makedirs(target_folder, exist_ok=True)
+                archive_file = os.path.join(target_folder, "network_history_archive.csv")
+
+                # Write to CSV securely
+                file_exists = os.path.exists(archive_file) and os.path.getsize(archive_file) > 0
+                with open(archive_file, mode="a", newline="", encoding="utf-8") as f:
+                    writer = csv.writer(f)
+                    if not file_exists:
+                        writer.writerow(["ID", "IP Address", "Status", "Latency (ms)", "Timestamp"])
+                    
+                    writer.writerow([row["id"], row["ip_address"], row["status"], row["latency_ms"], row["timestamp"]])
+
+            cursor.execute("DELETE FROM ping_logs WHERE timestamp < ?", (cutoff_date,))
+            conn.commit()
+            logging.info(f"Successfully segregated and archived {len(old_records)} records sequentially.")
+            
     except Exception as e:
-        logging.error(f"Archiving Failure: {e}")
+        logging.error(f"Archiving Strategy Failure: {e}")
     finally:
         conn.close()
-
 
 if __name__ == "__main__":
     init_db()
