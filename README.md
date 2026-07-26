@@ -21,6 +21,8 @@ flowchart TD
     E --> H["Update Flask Web Dashboard<br/>(http://localhost:5000)"]
 
 ```
+
+
 ### 📁 Advanced Enterprise Data Archiving & CPU Optimization
 To prevent database bloating and mitigate high CPU utilization in massive enterprise networks, the system implements a thread-safe historical log-rotation engine:
 * **Dynamic Time Buckets:** Automatically extracts and segments telemetry records based on the exact historical generation date (`timestamp`) rather than the execution date, preventing folder mixing.
