@@ -157,3 +157,10 @@ pip install flask python-dotenv requests
 4. **Automated SMS & PagerDuty Integration:** Adding native PagerDuty API integrations alongside Twilio for enterprise-level escalation chains.
 
 
+
+##🎓 Closing & Engineering Philosophy
+"Automating network resilience to ensure zero-downtime enterprise infrastructure."
+
+  **_ Dawit Niguse**
+
+**Thank you for evaluating this technical presentation! Questions & Demo Session.**
