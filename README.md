@@ -159,7 +159,8 @@ pip install flask python-dotenv requests
 
 
 ---
-##🎓 Closing & Engineering Philosophy
+#🎓 Closing & Engineering Philosophy
+
 "Automating network resilience to ensure zero-downtime enterprise infrastructure."
 
   **_ Dawit Niguse**
